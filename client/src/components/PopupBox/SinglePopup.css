@@ -1,0 +1,113 @@
+.singlepopup {
+  > .singlepopup_box {
+    align-items: flex-start;
+    border-radius: 24px;
+    background: var(--secondary-500, #05422c);
+    padding: 4%;
+
+    > .singlepopup_box_top {
+      display: flex;
+      flex-direction: column;
+      padding: 2% 0%;
+      > h1 {
+        color: var(--neutral-0, #fff);
+
+        /* Display/Display 2 */
+        font-size: 64px;
+        font-family: Lexend;
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -4px;
+      }
+      > p {
+        color: var(--secondary-100, #c3d2cc);
+
+        /* Regular/Text-LG */
+        font-size: 20px;
+        font-family: Lexend;
+        line-height: 150%;
+      }
+    }
+    > .singlepopup_box_bottom {
+      display: flex;
+      gap: 8px;
+      padding: 2% 0%;
+      > input {
+        display: flex;
+        padding: 2% 3%;
+        align-items: center;
+        flex: 1 0 0;
+
+        border-radius: 100px;
+        border: 1px solid var(--secondary-400, #346654);
+        background: var(--secondary-500, #05422c);
+        color: var(--secondary-300, #ffffff);
+      }
+
+      > .singlepopup_box_bottom_btn {
+        display: flex;
+        padding: 2% 3%;
+        align-items: center;
+        gap: 8px;
+        border-radius: 100px;
+        background: var(--primary-500, #17af26);
+        > button {
+          border: none;
+          background-color: transparent;
+          color: var(--neutral-0, #fff);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .singlepopup {
+    > .singlepopup_box {
+      > .singlepopup_box_top {
+        > h1 {
+          font-size: 32px;
+          font-family: Lexend;
+          font-weight: 600;
+          line-height: 120%;
+          letter-spacing: -1.5px;
+        }
+      }
+      > .singlepopup_box_bottom {
+        display: flex;
+        flex-direction: column;
+        display: flex;
+        > input {
+          display: flex;
+          padding: 16px 24px;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+         
+
+          /* Regular/Text-SM */
+          font-size: 16px;
+          font-family: Lexend;
+          line-height: 150%;
+        }
+
+        > .singlepopup_box_bottom_btn {
+          display: flex;
+          padding: 16px 44px;
+          align-items: center;
+          gap: 8px;
+          align-self: stretch;
+          > button {
+           
+
+            /* Bold/Text-SM */
+            font-size: 16px;
+            font-family: Lexend;
+            font-weight: 500;
+            line-height: 150%;
+          }
+        }
+      }
+    }
+  }
+}

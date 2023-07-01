@@ -1,0 +1,4 @@
+.mainheader{
+    display: flex;
+    flex-direction: column;
+}

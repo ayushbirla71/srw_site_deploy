@@ -1,0 +1,105 @@
+.item_comp_choose_your_weed {
+    padding: 4%;
+    > .item_comp_choose_your_weed_header {
+      
+      > h3 {
+        color: var(--neutral-500, #1a1e26);
+  
+        /* Display/Display 2 */
+        font-size: 64px;
+        font-family: Lexend;
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -4px;
+      }
+    }
+  
+    > .item_comp_choose_your_weed_div {
+      display: flex;
+  
+      padding: 0px 0px 32px 0px;
+      align-items: center;
+  
+      border-bottom: 1px solid var(--neutral-50, #f4f4f4);
+  
+      > .item_comp_choose_your_weed_div_filter {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 4%;
+  
+        > label {
+          color: var(--neutral-500, #1a1e26);
+          width: 100%;
+          font-size: 24px;
+          font-family: Lexend;
+          line-height: 150%;
+          letter-spacing: -0.5px;
+        }
+        > .item_comp_choose_your_weed_div_filter_buttons {
+          display: flex;
+          display: flex;
+          width: 100%;
+          align-items: center;
+          gap: 2%;
+          overflow: scroll;
+          padding: 8px 20px;
+          > button {
+            display: flex;
+            padding: 2%;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100px;
+            border: 1px solid var(--secondary-500, #05422c);
+            background: var(--secondary-50, #f2f6f4);
+          }
+        }
+        > .item_comp_choose_your_weed_div_filter_buttons::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  
+    > .item_comp_choose_your_weed_content {
+      padding-top: 2%;
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 3%;
+    }
+  }
+  
+  @media screen and (max-width: 40em) {
+    .item_comp_choose_your_weed {
+      text-align: center;
+      > .item_comp_choose_your_weed_header {
+        > h3 {
+          color: var(--neutral-500, #1a1e26);
+  
+          /* Display/Display 6 */
+          font-size: 32px;
+          font-family: Lexend;
+          font-weight: 600;
+          line-height: 120%;
+          letter-spacing: -1.5px;
+        }
+      }
+      > .item_comp_choose_your_weed_div {
+        > .item_comp_choose_your_weed_div_filter {
+          display: flex;
+          flex-direction: column;
+          padding: 1%;
+        }
+      }
+      > .item_comp_choose_your_weed_content {
+        grid-template-columns: auto auto;
+      }
+    }
+  }
+  @media (min-width: 40em) and (max-width: 60em) {
+    .item_comp_choose_your_weed {
+      > .item_comp_choose_your_weed_content {
+        grid-template-columns: auto auto auto;
+      }
+    }
+  }

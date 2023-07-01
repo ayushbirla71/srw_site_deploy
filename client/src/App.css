@@ -1,0 +1,31 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+.app{
+  >.app_home_pages{
+    >.app_home_pages_cart_popup{
+      display: flex;
+      position: fixed;
+      justify-content: right;
+      right: 0px;
+      top: 1px;
+      width: 100%;
+      background: rgba(1, 16, 11, 0.40);
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .app{
+    >.app_home_pages{
+      >.app_home_pages_cart_popup{
+        padding-top: 48px;
+       
+      }
+    }
+  }
+  
+}
