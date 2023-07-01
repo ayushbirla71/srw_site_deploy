@@ -2,11 +2,27 @@ import React from "react";
 import "./CartPopup.css";
 import { TbShoppingBag } from "react-icons/tb";
 import { AiOutlineClose } from "react-icons/ai";
+import {useSelector, useDispatch} from 'react-redux';
+import { Home_action_btn } from "../../redux/actions/buttons_actions/Buttons_actions";
+
+
 
 const CartPopup = () => {
+
+  const Dispatch= useDispatch();
+  
+  
+  const OnHandel = (name)=>{
+    console.log(name);
+    Dispatch(Home_action_btn(name))
+  
+  }
+
+
+
   return (
     <div className="cartpopup">
-      <label>
+      <label onClick={()=>OnHandel("cart_btn")} >
         <AiOutlineClose />
       </label>
       <div className="cartpopup_header">

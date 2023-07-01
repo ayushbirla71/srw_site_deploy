@@ -3,6 +3,10 @@
   margin: 0px;
 }
 
+input:focus{
+outline: none;
+}
+
 .app{
   >.app_home_pages{
     >.app_home_pages_cart_popup{
@@ -13,7 +17,7 @@
       top: 1px;
       width: 100%;
       background: rgba(1, 16, 11, 0.40);
-      display: none;
+      
     }
   }
 }

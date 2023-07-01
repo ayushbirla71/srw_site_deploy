@@ -7,14 +7,17 @@ import SearchPage from './components/pages/SearchPage/SearchPage';
 import ProductDetails from './components/pages/Productdetails/ProductDetails';
 import CartPopup from './components/PopupBox/CartPopup';
 import CartPage from './components/pages/Cart/CartPage';
+import {useSelector, useDispatch} from 'react-redux';
+
 
 function App() {
+  const {Home_actions}= useSelector((state)=>state)
   return (
    <div className='app'>
     <BrowserRouter>
       <MainHeader/>
     <div className='app_home_pages'>
-      <div className='app_home_pages_cart_popup'>
+      <div style={Home_actions.cart_btn ? {display:"none"}:{}} className='app_home_pages_cart_popup'>
       <CartPopup />
       </div>
       <Routes>
