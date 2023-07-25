@@ -45,6 +45,7 @@
           overflow: scroll;
           padding: 8px 20px;
           > button {
+            cursor: pointer;
             display: flex;
             padding: 2%;
             height: 48px;

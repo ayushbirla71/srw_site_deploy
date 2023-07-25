@@ -2,6 +2,7 @@ const initialState = {
     menu_btn: true,
     cart_btn: true,
     user_info_btn: true,
+    user_menu_btn: true,
 };
 
 

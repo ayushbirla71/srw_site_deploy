@@ -58,10 +58,9 @@
       gap: 8px;
 
       border-radius: 100px;
-      /* border: 1px solid var(--neutral-50, #f4f4f4);
-    background: var(--neutral-0, #fff); */
-
-      background: var(--primary-500, #17af26);
+      border: 1px solid var(--neutral-50, #f4f4f4);
+    background: var(--neutral-0, #fff);
+    cursor: pointer;
 
       > span {
         width: 8px;

@@ -1,0 +1,123 @@
+.user_singup {
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 4%;
+
+  > .user_singup_top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+
+    > .user_singup_top_name_input {
+      display: flex;
+      flex-direction: row;
+      gap: 3%;
+
+      > input {
+        padding: 4% 0px;
+        border-radius: 4px;
+        border: 1px solid var(--other-outlined-border, rgba(0, 0, 0, 0.23));
+      }
+    }
+
+    > .user_singup_top_mobile_input {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      > lable {
+        display: flex;
+        flex-direction: column;
+
+        > input {
+          padding: 4% 2%;
+          border-radius: 4px;
+          border: 1px solid var(--other-outlined-border, rgba(0, 0, 0, 0.23));
+        }
+      }
+    }
+
+    > lable {
+      display: flex;
+      flex-direction: column;
+
+      > input {
+        padding: 4% 2%;
+        border-radius: 4px;
+        border: 1px solid var(--other-outlined-border, rgba(0, 0, 0, 0.23));
+      }
+      >select{
+        padding: 4% 2%;
+        border-radius: 4px;
+        border: 1px solid var(--other-outlined-border, rgba(0, 0, 0, 0.23));
+      }
+    }
+
+    > .user_singup_top_btns {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      > button {
+        padding: 3% 0%;
+
+        border-radius: 4px;
+        background: #0057ff;
+
+        color: #fff;
+
+        /* Components/Button Large */
+        font-family: Roboto;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 26px; /* 173.333% */
+        letter-spacing: 0.46px;
+        text-transform: uppercase;
+        border: none;
+
+        /* Elevation/2 */
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.12),
+          0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+          0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
+      >#back_btn{
+        background-color: black;
+      }
+
+    }
+  }
+
+  > .user_singup_bottom{
+    display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        > label {
+          color: var(--text-primary, rgba(0, 0, 0, 0.87));
+
+          /* Typography/Body 2 */
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 143%; /* 20.02px */
+          letter-spacing: 0.15px;
+        }
+        > span {
+          width: 5px;
+          height: 5px;
+          flex-shrink: 0;
+          border-radius: 50%;
+          background-color: black;
+        }
+}
+}

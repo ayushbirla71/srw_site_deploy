@@ -1,9 +1,10 @@
 .footer {
   /* display: inline-flex; */
-
+  display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #1a1e26 0%, #01100b 100%);
   color: white;
+
 
   > .footer_popup {
     padding: 0% 4%;
@@ -17,6 +18,9 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 64px;
+    
+
+  
 
     > .footer_box_header {
       display: flex;
@@ -35,8 +39,12 @@
         gap: 24px;
         > .footer_box_header_left_logo {
           > .footer_box_header_left_logo_img {
-            width: 173px;
-            height: 42px;
+            width: 150px;
+
+            >img{
+              width: 100%;
+              height: 100%;
+            }
           }
         }
 
@@ -95,6 +103,8 @@
             width: 100%;
             justify-content: space-between;
 
+            
+
             > .footer_box_header_right_quicklink_box_left {
               width: 100%;
               display: flex;
@@ -102,6 +112,15 @@
               flex-direction: column;
               align-items: flex-start;
               gap: 16px;
+
+              >a {
+                text-decoration: none;
+                cursor: pointer;
+                color: var(--neutral-200, #9d9ea2);
+              }
+              >a:hover{
+                text-decoration: underline;
+              }
             }
 
             > .footer_box_header_right_quicklink_box_right {
@@ -111,6 +130,15 @@
               align-items: flex-start;
               gap: 16px;
               width: 100%;
+
+              >a {
+                text-decoration: none;
+                cursor: pointer;
+                color: var(--neutral-200, #9d9ea2);
+              }
+              >a:hover{
+                text-decoration: underline;
+              }
             }
           }
         }
@@ -139,6 +167,9 @@
               font-size: 14px;
               font-family: Lexend;
               line-height: 150%;
+            }
+            >a:hover{
+              text-decoration: underline;
             }
           }
         }
@@ -184,6 +215,15 @@
               flex-direction: column;
               align-items: flex-start;
               gap: 16px;
+
+              >a {
+                text-decoration: none;
+                cursor: pointer;
+                color: var(--neutral-200, #9d9ea2);
+              }
+              >a:hover{
+                text-decoration: underline;
+              }
             }
 
             > .footer_box_header_right_more_box_right {
@@ -193,6 +233,15 @@
               flex-direction: column;
               align-items: flex-start;
               gap: 16px;
+
+              >a {
+                text-decoration: none;
+                cursor: pointer;
+                color: var(--neutral-200, #9d9ea2);
+              }
+              >a:hover{
+                text-decoration: underline;
+              }
             }
           }
         }

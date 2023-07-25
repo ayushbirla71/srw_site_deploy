@@ -1,6 +1,7 @@
-import ButtonReducer from "./reducers/buttons_controller";
+import rootReducer from "./reducers";
 import { createStore } from "redux";
 
-const Store = createStore(ButtonReducer);
+
+const Store = createStore(rootReducer);
 
 export default Store;

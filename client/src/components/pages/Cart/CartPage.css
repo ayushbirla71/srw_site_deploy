@@ -27,13 +27,13 @@
         gap: 8px;
 
         border-radius: 100px;
-        background: var(--secondary-500, #05422c);
+        background: var(--secondary-500, #e9eceb);
 
         > svg {
           width: 14px;
           height: 14px;
           flex-shrink: 0;
-          color: white;
+          color: black;
         }
       }
       > h3 {

@@ -106,7 +106,7 @@
       flex-shrink: 0;
       width: 100%;
 
-      >hr{
+      > hr {
         width: 100%;
       }
 
@@ -157,7 +157,6 @@
               align-items: flex-start;
               gap: 6px;
               flex: 1 0 0;
-             
             }
 
             > .cartpopup_box_items_list_item_content_info_price {
@@ -167,6 +166,11 @@
               justify-content: space-between;
               align-items: flex-end;
               align-self: stretch;
+              > label {
+                > svg {
+                  cursor: pointer;
+                }
+              }
             }
           }
         }
@@ -283,7 +287,6 @@
   }
 }
 
-
-.cartpopup_box::-webkit-scrollbar{
-    display: none;
+.cartpopup_box::-webkit-scrollbar {
+  display: none;
 }

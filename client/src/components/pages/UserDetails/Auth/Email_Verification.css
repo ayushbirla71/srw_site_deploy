@@ -1,0 +1,154 @@
+.email_varification {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4%;
+  gap: 30px;
+  background-color: #FAFAFB;
+
+  >.email_varification_popup{
+      display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 190px;
+    background-color: rgb(255, 0, 51);
+    padding: 1% 2%;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  > .email_varification_header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    > h3 {
+      color: var(--text-primary, rgba(0, 0, 0, 0.87));
+      font-family: Poppins;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 123.5%; /* 34.58px */
+      letter-spacing: 0.25px;
+
+      > span {
+        color: var(--primary-color-active-elements, #0057ff);
+        font-family: Poppins;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 123.5%;
+        letter-spacing: 0.25px;
+      }
+    }
+
+    > p {
+      color: #000;
+
+      /* Typography/Body 1 */
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0.15px;
+    }
+  }
+  >form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    > .email_varification_Otp {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+  
+      > input {
+        padding: 2%;
+        width: 2rem;
+        height: 2rem;
+        font-size: large;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  
+    > .email_varification_conform {
+      > button {
+        border: none;
+        padding: 15px 25px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 4px;
+        background: var(--primary-color-active-elements, #0057ff);
+  
+        /* Elevation/4 */
+        box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+          0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+  
+        color: var(--primary-contrast, #fff);
+  
+        /* Components/Button Large */
+        font-family: Roboto;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 26px; /* 173.333% */
+        letter-spacing: 0.46px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  > .email_varification_re_send {
+    display: flex;
+    flex-direction: column;
+    > label {
+      color: #000;
+
+      /* Typography/Body 1 */
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0.15px;
+
+      > a {
+        color: var(--primary-color-active-elements, #0057ff);
+
+        /* Typography/Body 1 */
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+        letter-spacing: 0.15px;
+      }
+    }
+  }
+  >hr{
+    width: 100%;
+  }
+  > .email_varification_info {
+    > p {
+      color: #000;
+
+      /* Typography/Body 1 */
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0.15px;
+    }
+  }
+}

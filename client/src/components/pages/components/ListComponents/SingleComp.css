@@ -1,3 +1,6 @@
+.singlecomp_list_box_Link{
+  text-decoration: none;
+}
 .singlecomp_list_box {
   display: flex;
   overflow: hidden;
@@ -5,6 +8,7 @@
   align-items: flex-start;
   gap: 24px;
   border-radius: 16px;
+  cursor: pointer;
 
   .singlecomp_list_box_logo {
     display: flex;
@@ -15,6 +19,7 @@
     align-self: stretch;
     border-radius: 8px;
     background: var(--neutral-50, #f4f4f4);
+    padding: 4%;
 
     .singlecomp_list_box_logo_img {
       display: flex;
@@ -22,8 +27,10 @@
       align-items: center;
       gap: 2%;
       align-self: stretch;
+     
       > img {
         width: 164px;
+        border-radius: 5%;
       }
     }
   }
@@ -55,19 +62,15 @@
         line-height: 150%;
       }
 
-      > button {
-        display: flex;
-        border: none;
-        padding: 4px 10px 5px 10px;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        border-radius: 4px;
-        background: var(--secondary-50, #f2f6f4);
-      }
-
       .singlecomp_list_box_content_header_review {
         display: flex;
+        gap: 2px;
+        flex-direction: row;
+        >span{
+          
+          width: 2px;
+          background-color: var(--neutral-200, #9d9ea2);
+        }
 
         > label {
           color: var(--neutral-900, #060709);
@@ -97,23 +100,27 @@
       align-self: stretch;
 
       .singlecomp_list_box_content_info_price {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
         .singlecomp_list_box_content_info_price1_label {
-          color: var(--neutral-200, #9d9ea2);
-          font-size: 14px;
-          font-family: Lexend;
-          line-height: 150%;
-          text-decoration-line: strikethrough;
-        }
-        .singlecomp_list_box_content_info_price2_label {
           color: var(--other-red, #eb2606);
 
           /* Regular/Text-SM */
-          font-size: 16px;
+          font-size: 18px;
           font-family: Lexend;
           line-height: 150%;
         }
+        .singlecomp_list_box_content_info_price2_label {
+          color: var(--neutral-200, #9d9ea2);
+          font-size: 16px;
+          font-family: Lexend;
+          line-height: 150%;
+          text-decoration-line: line-through;
+         
+        }
       }
-      .singlecomp_list_box_content_info_options {
+      /* .singlecomp_list_box_content_info_options {
         display: flex;
         height: 32px;
         padding: 4px 10px 5px 10px;
@@ -124,7 +131,7 @@
         > button {
           display: flex;
           height: 32px;
-          /* padding: 4px 10px 5px 10px; */
+          padding: 4px 10px 5px 10px;
           justify-content: center;
           align-items: center;
           gap: 12px;
@@ -132,9 +139,9 @@
           border: 1px solid var(--neutral-50, #f4f4f4);
           background: var(--neutral-0, #fff);
         }
-      }
+      } */
 
-      .singlecomp_list_box_content_info_addcart {
+      /* .singlecomp_list_box_content_info_addcart {
         .singlecomp_list_box_content_info_addcart_btn {
           color: var(--neutral-0, #fff);
 
@@ -155,7 +162,7 @@
           gap: 8px;
           align-self: stretch;
         }
-      }
+      } */
     }
   }
 }

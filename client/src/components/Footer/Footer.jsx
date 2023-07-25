@@ -1,7 +1,7 @@
 import React from "react";
 import SinglePopup from "../PopupBox/SinglePopup";
 import "./Footer.css";
-import logo from './icons/Logo (2).png';
+import logo from '../../logos/IMG_20230724_180428-removebg-preview.png';
 import {RiMastercardFill, RiVisaLine, RiBitCoinLine} from 'react-icons/ri';
 
 const Footer = () => {
@@ -33,20 +33,20 @@ const Footer = () => {
               </div>
               <div className="footer_box_header_right_quicklink_box">
                 <div className="footer_box_header_right_quicklink_box_left">
-                  <a>Track Your Order</a>
-                  <a>Shop All</a>
-                  <a>Flower</a>
-                  <a>Edibles</a>
-                  <a>Concentrates</a>
-                  <a>Refunds</a>
+                  <a href="#" >Track Your Order</a>
+                  <a href="#" >Shop All</a>
+                  <a href="#" >Flower</a>
+                  <a href="#" >Edibles</a>
+                  <a href="#" >Concentrates</a>
+                  <a href="#" >Refunds</a>
                 </div>
                 <div className="footer_box_header_right_quicklink_box_right">
-                  <a>Mushrooms</a>
-                  <a>Promotions / Bundles</a>
-                  <a>Support</a>
-                  <a>Reward</a>
-                  <a>Blog</a>
-                  <a>Shipping Faq</a>
+                  <a href="#" >Mushrooms</a>
+                  <a href="#" >Promotions / Bundles</a>
+                  <a href="#" >Support</a>
+                  <a href="#" >Reward</a>
+                  <a href="#" >Blog</a>
+                  <a href="#" >Shipping Faq</a>
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@ const Footer = () => {
               <label>CONTACT US</label>
               <div className="footer_box_header_right_contactus_link">
 
-              <a>info@topshelfbc.cc</a>
+              <a href="#" >info@topshelfbc.cc</a>
               </div>
             </div>
 
@@ -65,18 +65,18 @@ const Footer = () => {
               </div>
               <div className="footer_box_header_right_more_box">
                 <div className="footer_box_header_right_more_box_left">
-                  <a>Buy weed online in Canada</a>
-                  <a>Buy weed online in New Brunswick</a>
-                  <a>Buy weed online in Prince Edward Island</a>
-                  <a>Buy weed online in Northwest Territories</a>
-                  <a>Buy weed online in Saskatchewan</a>
+                  <a href="#">Buy Laptop & Mobile online in Indore</a>
+                  <a href="#">Buy Laptop & Mobile online in Sanawad</a>
+                  <a href="#">Buy Laptop & Mobile online in Bediya</a>
+                  <a href="#">Buy Laptop & Mobile online in Badwah</a>
+                  <a href="#">Buy Laptop & Mobile online in Omkareshwar</a>
                 </div>
                 <div className="footer_box_header_right_more_box_right">
-                  <a>Buy weed online in Manitoba</a>
-                  <a>Buy weed online in Quitebec</a>
-                  <a>Buy weed online in British Columbia</a>
-                  <a>Buy weed online in Ontario</a>
-                  <a>Buy weed online in Alberta</a>
+                  <a href="#" >Buy Laptop & Mobile online in Toklay</a>
+                  <a href="#" >Buy Laptop & Mobile online in Satajana</a>
+                  <a href="#" >Buy Laptop & Mobile online in Mogava</a>
+                  <a href="#" >Buy Laptop & Mobile online in Rahdcot</a>
+                  <a href="#" >Buy Laptop & Mobile online in Sala</a>
                 </div>
               </div>
             </div>
@@ -95,9 +95,9 @@ const Footer = () => {
             <label>© 2022 Top Shelf BC. All Rights Reserved. </label>
           </div>
           <div className="footer_box_footer_right">
-            <a>Out Of Stock</a>
-            <a>Privacy Policy</a>
-            <a>Terms & Conditions</a>
+            <a href="#">Out Of Stock</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
           </div>
         </div>
       </div>

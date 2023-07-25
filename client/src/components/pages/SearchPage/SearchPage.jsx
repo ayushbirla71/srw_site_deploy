@@ -1,19 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaShippingFast } from "react-icons/fa";
 import "./SearchPage.css";
 import { AiFillStar } from "react-icons/ai";
 import { TbArrowBadgeDown } from "react-icons/tb";
 import SingleComp from "../components/ListComponents/SingleComp";
-import Slider from "react-slick";
 import { RxDividerVertical } from "react-icons/rx";
+import { useNavigate, useParams } from "react-router-dom";
+import FeachApi from "../../../utils/FeachAPI";
+import { useSelector, useDispatch } from "react-redux";
+import { Search_page_data_act } from "../../../redux/actions/search_page_data/Search_page_data";
+import { Header_Details_act } from "../../../redux/actions/header/Header_Details";
 
 const SearchPage = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+  const Dispatch = useDispatch();
+  const navigate= useNavigate();
+
+  const { title, category, OrderFilter } = useParams();
+  const { Search_page_data } = useSelector((state) => state);
+  const [filterOptn, setfilterOptn] = useState({
+    categoryFilter: category,
+    priceFilter: "",
+    orderd_by: OrderFilter,
+    reviewsFilter: "",
+  });
+
+  useEffect(() => {
+    Dispatch(Header_Details_act(title))
+    Feach_Search_page_data();
+    console.log(filterOptn.categoryFilter);
+  }, []);
+
+
+  const Feach_Search_page_data = async () => {
+    let Obj = {
+      url: "products/filter",
+      method: "get",
+      params: {
+        category: category,
+        title: title,
+      },
+    };
+    let data = await FeachApi(Obj);
+    if(data.status === true){
+
+      Dispatch(Search_page_data_act(data.data));
+      console.log(data);
+    }
+  };
+
+  const OnHandel = (name, value) => {
+    // setfilterOptn({ ...filterOptn, [name]: value });
+
+    // navigate(`/search/${title}/${filterOptn.categoryFilter}/${filterOptn.orderd_by}`)
+    window.location.reload();
   };
 
   return (
@@ -44,21 +83,157 @@ const SearchPage = () => {
               </h4>
             </div>
             <div className="search_main_div_filters_product_category_options">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1].map(() => (
-                <div className="search_main_div_filters_option_list">
-                  <div className="search_main_div_filters_option_list_checkbox">
-                    <label>
-                      <span></span>
-                    </label>
-                  </div>
-                  <span id="search_main_div_filters_option_list_label">
-                    {" "}
-                    Magic Mushrooms
-                  </span>
-                  <span id="search_main_div_filters_option_list_davider"></span>
-                  <span id="search_main_div_filters_option_list_value">34</span>
+            <div className="search_main_div_filters_option_list">
+                <div className="search_main_div_filters_option_list_checkbox">
+                  <label
+                    onClick={() => {
+                      navigate(`/search/${title}/All/${filterOptn.orderd_by}`)
+                      OnHandel("categoryFilter", "All");
+                    }}
+                    style={
+                      filterOptn.categoryFilter == "All"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                  >
+                    <span></span>
+                  </label>
                 </div>
-              ))}
+                <span id="search_main_div_filters_option_list_label">
+                  {" "}
+                  All
+                </span>
+                <span id="search_main_div_filters_option_list_davider"></span>
+                <span id="search_main_div_filters_option_list_value">34</span>
+              </div>
+              {/* Mobile */}
+              <div className="search_main_div_filters_option_list">
+                <div className="search_main_div_filters_option_list_checkbox">
+                  <label
+                    onClick={() => {
+                      navigate(`/search/${title}/Mobile/${filterOptn.orderd_by}`)
+                      OnHandel("categoryFilter", "Mobile");
+                    }}
+                    style={
+                      filterOptn.categoryFilter == "Mobile"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                  >
+                    <span></span>
+                  </label>
+                </div>
+                <span id="search_main_div_filters_option_list_label">
+                  {" "}
+                  Mobile
+                </span>
+                <span id="search_main_div_filters_option_list_davider"></span>
+                <span id="search_main_div_filters_option_list_value">34</span>
+              </div>
+
+              {/* Laptop */}
+
+              <div className="search_main_div_filters_option_list">
+                <div className="search_main_div_filters_option_list_checkbox">
+                  <label
+                    onClick={() => {
+                      navigate(`/search/${title}/Laptop/${filterOptn.orderd_by}`)
+                      OnHandel("categoryFilter", "Laptop");
+                    }}
+                    style={
+                      filterOptn.categoryFilter == "Laptop"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                  >
+                    <span></span>
+                  </label>
+                </div>
+                <span id="search_main_div_filters_option_list_label">
+                  {" "}
+                  Laptop
+                </span>
+                <span id="search_main_div_filters_option_list_davider"></span>
+                <span id="search_main_div_filters_option_list_value">34</span>
+              </div>
+
+              {/* EarPhones */}
+
+              <div className="search_main_div_filters_option_list">
+                <div className="search_main_div_filters_option_list_checkbox">
+                  <label
+                    onClick={() => {
+                      navigate(`/search/${title}/EarPhone/${filterOptn.orderd_by}`)
+                      OnHandel("categoryFilter", "EarPhone");
+                    }}
+                    style={
+                      filterOptn.categoryFilter == "EarPhone"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                  >
+                    <span></span>
+                  </label>
+                </div>
+                <span id="search_main_div_filters_option_list_label">
+                  {" "}
+                  EarPhone
+                </span>
+                <span id="search_main_div_filters_option_list_davider"></span>
+                <span id="search_main_div_filters_option_list_value">34</span>
+              </div>
+
+              {/* Mouse */}
+
+              <div className="search_main_div_filters_option_list">
+                <div className="search_main_div_filters_option_list_checkbox">
+                  <label
+                    onClick={() => {
+                      navigate(`/search/${title}/Mouse/${filterOptn.orderd_by}`)
+                      OnHandel("categoryFilter", "Mouse");
+                    }}
+                    style={
+                      filterOptn.categoryFilter == "Mouse"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                  >
+                    <span></span>
+                  </label>
+                </div>
+                <span id="search_main_div_filters_option_list_label">
+                  {" "}
+                  Mouse
+                </span>
+                <span id="search_main_div_filters_option_list_davider"></span>
+                <span id="search_main_div_filters_option_list_value">34</span>
+              </div>
+
+              {/* KeyBoard */}
+
+              <div className="search_main_div_filters_option_list">
+                <div className="search_main_div_filters_option_list_checkbox">
+                  <label
+                    onClick={() => {
+                      navigate(`/search/${title}/KeyBoard/${filterOptn.orderd_by}`)
+                      OnHandel("categoryFilter", "KeyBoard");
+                    }}
+                    style={
+                      filterOptn.categoryFilter == "KeyBoard"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                  >
+                    <span></span>
+                  </label>
+                </div>
+                <span id="search_main_div_filters_option_list_label">
+                  {" "}
+                  KeyBoard
+                </span>
+                <span id="search_main_div_filters_option_list_davider"></span>
+                <span id="search_main_div_filters_option_list_value">34</span>
+              </div>
             </div>
           </div>
 
@@ -92,7 +267,17 @@ const SearchPage = () => {
             <div className="search_main_div_filters_order_by_options">
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label  
+                   onClick={() => {
+                     navigate(`/search/${title}/${filterOptn.categoryFilter}/Default`)
+                     OnHandel("orderd_by", "Default");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "Default"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }
+                    >
                     <span></span>
                   </label>
                 </div>
@@ -103,7 +288,17 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label 
+                      onClick={() => {
+                        navigate(`/search/${title}/${filterOptn.categoryFilter}/Review Count`)
+                        OnHandel("orderd_by", "Review Count");
+                      }}
+                      style={
+                        filterOptn.orderd_by == "Review Count"
+                          ? { backgroundColor: "var(--primary-500, #17af26)" }
+                          : {}
+                      }
+                  >
                     <span></span>
                   </label>
                 </div>
@@ -114,7 +309,16 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label 
+                      onClick={() => {
+                        navigate(`/search/${title}/${filterOptn.categoryFilter}/Popularity`)
+                        OnHandel("orderd_by", "Popularity");
+                      }}
+                      style={
+                        filterOptn.orderd_by == "Popularity"
+                          ? { backgroundColor: "var(--primary-500, #17af26)" }
+                          : {}
+                      }>
                     <span></span>
                   </label>
                 </div>
@@ -125,7 +329,16 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label
+                      onClick={() => {
+                        navigate(`/search/${title}/${filterOptn.categoryFilter}/Average Rating`)
+                        OnHandel("orderd_by", "Average Rating");
+                      }}
+                      style={
+                        filterOptn.orderd_by == "Average Rating"
+                          ? { backgroundColor: "var(--primary-500, #17af26)" }
+                          : {}
+                      }>
                     <span></span>
                   </label>
                 </div>
@@ -136,7 +349,15 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label     onClick={() => {
+                    navigate(`/search/${title}/${filterOptn.categoryFilter}/Newness`)
+                    OnHandel("orderd_by", "Newness");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "Newness"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }>
                     <span></span>
                   </label>
                 </div>
@@ -147,7 +368,15 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label     onClick={() => {
+                    navigate(`/search/${title}/${filterOptn.categoryFilter}/Price: Low to High`)
+                    OnHandel("orderd_by", "Price: Low to High");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "Price: Low to High"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }>
                     <span></span>
                   </label>
                 </div>
@@ -158,7 +387,15 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label     onClick={() => {
+                    navigate(`/search/${title}/${filterOptn.categoryFilter}/Price: High to Low`)
+                    OnHandel("orderd_by", "Price: High to Low");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "Price: High to Low"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }>
                     <span></span>
                   </label>
                 </div>
@@ -169,7 +406,15 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label     onClick={() => {
+                    navigate(`/search/${title}/${filterOptn.categoryFilter}/Random Products`)
+                    OnHandel("orderd_by", "Random Products");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "Random Products"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }>
                     <span></span>
                   </label>
                 </div>
@@ -180,7 +425,15 @@ const SearchPage = () => {
               </div>
               <div className="search_main_div_filters_option_list">
                 <div className="search_main_div_filters_option_list_checkbox">
-                  <label>
+                  <label     onClick={() => {
+                    navigate(`/search/${title}/${filterOptn.categoryFilter}/Product Name`)
+                    OnHandel("orderd_by", "Product Name");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "Product Name"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }>
                     <span></span>
                   </label>
                 </div>
@@ -200,7 +453,14 @@ const SearchPage = () => {
               {[1, 2, 3, 4, 5].map(() => (
                 <div className="search_main_div_filters_option_list">
                   <div className="search_main_div_filters_option_list_checkbox">
-                    <label>
+                    <label     onClick={() => {
+                      OnHandel("orderd_by", "KeyBoard");
+                    }}
+                    style={
+                      filterOptn.orderd_by == "KeyBoard"
+                        ? { backgroundColor: "var(--primary-500, #17af26)" }
+                        : {}
+                    }>
                       <span></span>
                     </label>
                   </div>
@@ -221,6 +481,8 @@ const SearchPage = () => {
           </div>
         </div>
 
+        {/* main contents */}
+
         <div className="search_main_div_contents">
           <div className="search_main_div_contents_header">
             <h4>Shop</h4>
@@ -240,7 +502,7 @@ const SearchPage = () => {
             <div className="search_main_div_contents_sort">
               <div className="search_main_div_contents_sort_dropdown">
                 <button className="search_main_div_contents_sort_dropdownd_btn">
-                  Dropdown <TbArrowBadgeDown />{" "}
+                  Sort By <TbArrowBadgeDown />{" "}
                 </button>
                 <div className="search_main_div_contents_sort_dropdownd-content">
                   <a href="#">Link 1</a>
@@ -251,6 +513,7 @@ const SearchPage = () => {
             </div>
           </div>
 
+          {/* Contents */}
           <div className="search_main_div_contents_about">
             <h3>Cannabis</h3>
             <div className="search_main_div_contents_about_content">
@@ -275,9 +538,12 @@ const SearchPage = () => {
           <div className="search_main_div_contents_top_selling">
             <h3>Top Selling</h3>
             <div className="search_main_div_contents_top_selling_list">
-              {[1, 2, 3, 4, 5, 6, 7].map(() => (
-                <div className="search_main_div_contents_top_selling_list_item">
-                  <SingleComp />
+              {Search_page_data.map((item, _id) => (
+                <div
+                  key={_id}
+                  className="search_main_div_contents_top_selling_list_item"
+                >
+                  <SingleComp item={item} />
                 </div>
               ))}
             </div>
@@ -286,8 +552,8 @@ const SearchPage = () => {
           <br />
 
           <div className="search_main_div_contents_gid_box_one">
-            {[1, 2, 3, 1, 2, 3].map(() => (
-              <SingleComp />
+            {Search_page_data.map((item, _id) => (
+              <SingleComp item={item} key={_id} />
             ))}
           </div>
 
@@ -335,8 +601,8 @@ const SearchPage = () => {
           <br />
 
           <div className="search_main_div_contents_gid_box_one">
-            {[1, 2, 3, 1, 2, 3].map(() => (
-              <SingleComp />
+            {Search_page_data?.map((item, _id) => (
+              <SingleComp item={item} key={_id} />
             ))}
           </div>
         </div>
