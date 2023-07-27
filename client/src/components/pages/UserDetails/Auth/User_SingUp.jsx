@@ -15,100 +15,112 @@ const User_SingUp = () => {
     Dispatch(User_auth_actn(name, value));
   };
 
-  const OnNext = ( type) => {
-    if(type === "next"){
-
-      if (User_auth_data.fname === '') {
+  const OnNext = (type) => {
+    if (type === "next") {
+      if (User_auth_data.fname === "") {
         setinputReq("fname");
         console.log(User_auth_data.fname);
-      } else if (User_auth_data.lname === '') {
+      } else if (User_auth_data.lname === "") {
         setinputReq("lname");
-      } else if (User_auth_data.email === '') {
+      } else if (User_auth_data.email === "") {
         setinputReq("email");
-      } else if (User_auth_data.contry === '') {
+      } else if (User_auth_data.contry === "") {
         setinputReq("contry");
-      } else if (User_auth_data.phone === '') {
+      } else if (User_auth_data.phone === "") {
         setinputReq("phone");
-      } else if (User_auth_data.gender === '') {
+      } else if (User_auth_data.gender === "") {
         setinputReq("gender");
       } else {
         setinputReq(null);
-          navigate("/singup/emailVarification");
+        navigate("/singup/emailVarification");
       }
-    }
-    else if(type ==="back" ){
-      navigate('/login')
+    } else if (type === "back") {
+      navigate("/login");
     }
   };
 
   return (
     <div className="user_singup">
       <div className="user_singup_top">
-        <h5>Sign up to socialRepeat</h5>
+        <h5>Sign up to System Repair World</h5>
         <h1>{inputReq}</h1>
-          <div className="user_singup_top_name_input">
-            <input
-              required
-              name="fname"
-              onChange={OnInput}
-              type="text"
-              placeholder="First name"
-            />
-            <input
-              required
-              name="lname"
-              onChange={OnInput}
-              type="text"
-              placeholder="Last name"
-            />
-          </div>
-          <lable>
-            {" "}
-            Email Address
-            <input required name="email" onChange={OnInput} type="email" />
-          </lable>
+        <div className="user_singup_top_name_input">
+          <input
+            required
+            name="fname"
+            onChange={OnInput}
+            type="text"
+            placeholder="First name"
+          />
+          <input
+            required
+            name="lname"
+            onChange={OnInput}
+            type="text"
+            placeholder="Last name"
+          />
+        </div>
+        <lable>
+          {" "}
+          Email Address
+          <input required name="email" onChange={OnInput} type="email" />
+        </lable>
 
-          {/* <lable>
+        {/* <lable>
           {" "}
           Company name
           <input />
         </lable> */}
 
-          <div className="user_singup_top_mobile_input">
-            <lable>
-              Country
-              <input required name="contry" onChange={OnInput} />
-            </lable>
-            <lable>
-              {" "}
-              Phone #
-              <input required name="phone" onChange={OnInput} type="number" />
-            </lable>
-          </div>
-
+        <div className="user_singup_top_mobile_input">
           <lable>
-            {" "}
-            User type
-            <select name="user type" value="Male" onChange={OnInput}>
-              <option>Client</option>
-              <option>Amploy</option>
+            Country
+            <select onChange={OnInput} >
+              <option value="504">Honduras +504</option>
+              <option value="852">Hong Kong +852</option>
+              <option value="36">Hungary +36</option>
+              <option value="354">Iceland +354</option>
+              <option value="91">India +91</option>
+              <option value="62">Indonesia +62</option>
+              <option value="98">Iran, Islamic Republic of +98</option>
+              <option value="964">Iraq +964</option>
+              <option value="353">Ireland +353</option>
+              <option value="44">Isle of Man +44</option>
+              <option value="972">Israel +972</option>
+              <option value="39">Italy +39</option>
+              <option value="1876">Jamaica +1876</option>
             </select>
           </lable>
-
           <lable>
             {" "}
-            Gender
-            <select required name="gender" onChange={OnInput}>
-              <option>Male</option>
-              <option>Female</option>
-            </select>
+            Phone #
+            <input required name="phone" onChange={OnInput} type="number" />
           </lable>
+        </div>
 
-        
+        {/* <lable>
+          {" "}
+          User type
+          <select name="user type" value="Male" onChange={OnInput}>
+            <option>Client</option>
+            <option>Amploy</option>
+          </select>
+        </lable> */}
+
+        <lable>
+          {" "}
+          Gender
+          <select required name="gender" onChange={OnInput}>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </lable>
 
         <div className="user_singup_top_btns">
-          <button onClick={()=>OnNext("next")}>Next</button>
-          <button onClick={()=>OnNext("back")} id="back_btn">BACK to login</button>
+          <button onClick={() => OnNext("next")}>Next</button>
+          <button onClick={() => OnNext("back")} id="back_btn">
+            BACK to login
+          </button>
         </div>
       </div>
       <div className="user_singup_bottom">

@@ -20,7 +20,7 @@ const SingleComp = ({item}) => {
               <h3>{item?.Title}</h3>
               <div className="singlecomp_list_box_content_header_review">
                 <label>4.6/5 </label>
-                <span></span>
+                <RxDividerVertical />
                 <label>
                   135
                   <a> Reviews</a>
@@ -30,11 +30,11 @@ const SingleComp = ({item}) => {
 
             <div className="singlecomp_list_box_content_info">
               <div className="singlecomp_list_box_content_info_price">
-                <label className="singlecomp_list_box_content_info_price1_label">
-                  $200.00
-                </label>
                 <label className="singlecomp_list_box_content_info_price2_label">
-                  $102.00
+                ₹ {item?.MRP}
+                </label>
+                <label className="singlecomp_list_box_content_info_price1_label">
+                ₹ {item?.Price}
                 </label>
               </div>
 

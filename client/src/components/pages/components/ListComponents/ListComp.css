@@ -76,7 +76,7 @@
  cursor: pointer;
  overflow: hidden;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center ;
   gap: 24px;
   border-radius: 16px;
 
@@ -143,6 +143,9 @@
 
       .listcomp_list_box_content_header_review {
         display: flex;
+        flex-direction: row;
+        align-items: center;
+      
 
         > label {
           color: var(--neutral-900, #060709);
@@ -172,6 +175,10 @@
       align-self: stretch;
 
       .listcomp_list_box_content_info_price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
         .listcomp_list_box_content_info_price1_label {
           color: var(--neutral-200, #9d9ea2);
           font-size: 14px;

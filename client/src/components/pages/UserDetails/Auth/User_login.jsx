@@ -18,37 +18,47 @@ const User_login = () => {
 
   const [wrongInput, setwrongInput]= useState({email:false, password:false});
 
+  const OnPopup = () => {
+    setTimeout(() => {
+      setwrongInput({email:false, password:false});
+    }, 4000);
+  };
+
   const OnSubmit = async () => {
     console.log(User_auth_data.email);
-    var bodyFormData = new FormData();
-    bodyFormData.append("email", User_auth_data.email);
-    bodyFormData.append("password", User_auth_data.password);
-
-    try {
-      let Obj = {
-        method: "post",
-        url: "login",
-        data: bodyFormData,
-        headers: { "Content-Type": "multipart/form-data" },
-      };
-      let data = await FeachApi(Obj);
-
-      if (data?.status === true) {
-        console.log(data);
-        Dispatch(User_login_credentials_act(data.data));
-        localStorage.setItem("token", data?.data?.token);
-        localStorage.setItem("userId", data?.data?.userId);
-        nevigate('/');
-        window.location.reload();
-        
-      } else {
-        console.log("login failed");
-        console.log(data?.message);
-        setwrongInput
+    if(User_auth_data?.email!=="" && User_auth_data?.password!==""){
+      
+      var bodyFormData = new FormData();
+      bodyFormData.append("email", User_auth_data.email);
+      bodyFormData.append("password", User_auth_data.password);
+  
+      try {
+        let Obj = {
+          method: "post",
+          url: "login",
+          data: bodyFormData,
+          headers: { "Content-Type": "multipart/form-data" },
+        };
+        let data = await FeachApi(Obj);
+  
+        if (data?.status === true) {
+          console.log(data);
+          Dispatch(User_login_credentials_act(data.data));
+          localStorage.setItem("token", data?.data?.token);
+          localStorage.setItem("userId", data?.data?.userId);
+          nevigate('/');
+          window.location.reload();
+          
+        } else {
+          console.log("login failed");
+          console.log(data?.message);
+          setwrongInput({...wrongInput,[data?.filed]: data.message})
+          OnPopup();
+        }
+  
+      } catch (error) {
+        console.log(error?.response?.data);
       }
-
-    } catch (error) {
-      console.log(error.response.data);
     }
   };
 
@@ -77,7 +87,7 @@ const User_login = () => {
                 type="email"
                 placeholder="Email Address *"
               />
-                <span style={wrongInput.email===true ? {display:"flex"}:{}}>woring password</span>
+                <span style={wrongInput.email ? {display:"flex"}:{}}>{wrongInput?.email}</span>
               </label>
 
               <label>
@@ -88,7 +98,7 @@ const User_login = () => {
                 type="password"
                 placeholder="Password *"
               />
-              <span style={wrongInput.password===true ? {display:"flex"}:{}}>woring password</span>
+              <span style={wrongInput.password ? {display:"flex"}:{}}>{wrongInput?.password}</span>
               </label>
 
               <div>

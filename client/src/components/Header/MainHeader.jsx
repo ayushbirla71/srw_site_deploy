@@ -51,7 +51,7 @@ const MainHeader = () => {
         console.log("failed");
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
     }
   };
 

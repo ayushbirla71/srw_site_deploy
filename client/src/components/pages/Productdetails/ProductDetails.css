@@ -328,28 +328,34 @@
                   align-items: center;
                   gap: 10px;
 
-                  > input {
+                  > label {
                     display: flex;
-                    width: 22px;
-                    height: 22px;
+                    width: 20px;
+                    height: 20px;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     gap: 8px;
+                    cursor: pointer;
 
-                    border-radius: 6px;
-                    border: 1px solid var(--neutral-50, #f4f4f4);
+                    border-radius: 50%;
+                    border: 2px solid var(--neutral-50, #f4f4f4);
                     background: var(--neutral-0, #fff);
+
+                    > span {
+                      background-color: #f0f0f0;
+                      width: 10px;
+                      height: 10px;
+                      border-radius: 50%;
+  
+                      /* Regular/Text-XS */
+                      font-size: 14px;
+                      font-family: Lexend;
+                      line-height: 150%;
+                    }
+
                   }
 
-                  > span {
-                    color: var(--neutral-900, #060709);
-
-                    /* Regular/Text-XS */
-                    font-size: 14px;
-                    font-family: Lexend;
-                    line-height: 150%;
-                  }
                 }
               }
             }

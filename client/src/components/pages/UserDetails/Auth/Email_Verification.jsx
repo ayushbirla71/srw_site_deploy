@@ -30,6 +30,7 @@ const Email_Verification = () => {
   }
 
   const OtpSender = async () => {
+    console.log("otp");
     try {
       let Obj = {
         url: "emailVerification",

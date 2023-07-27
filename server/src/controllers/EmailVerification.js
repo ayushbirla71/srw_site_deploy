@@ -24,7 +24,7 @@ const EmailVerification = async (req, res) => {
           "249073942808-rh5f2rc4roqp4ajerks4uitk1ombtq1o.apps.googleusercontent.com",
         clientSecret: "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",
         refreshToken:
-          "1//04Pz2oOomCntOCgYIARAAGAQSNwF-L9IrcggiAqBhy8ldRsCmsuPotl_BscVepgFV6QciL6y9j3Xmba74r78uguifh4XoNKhkmqQ",
+          "1//04f190Bd-1WumCgYIARAAGAQSNwF-L9Irf_fbAKfGCRcQ3O_Zc7_jPAtCnyDdRu8nDtdhq2PBR6h0SSdVOB84UWX7f2lYNmF8R-o",
       },
     });
 

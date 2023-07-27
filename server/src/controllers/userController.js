@@ -135,13 +135,14 @@ const userForgetPassword = async function (req, res) {
 const userLogin = async (req, res) => {
     try {
         let { email, password } = req.body
-        if (!email) { return res.status(400).send({ status: false, message: "Pls provide email" }) }
-        if (!password) { return res.status(400).send({ status: false, message: "Pls provide password" }) }
+        if (!email) { return res.status(400).send({ status: false,filed:"email", message: "Pls provide email" }) }
+        if (!password) { return res.status(400).send({ status: false, 
+            filed:"password", message: "Pls provide password" }) }
         if (!isValidEmail(email)) {
-            return res.status(400).send({ status: false, message: "Please provide valid Email Id" })
+            return res.status(400).send({ status: false, filed:"email", message: "Invalid Email Id" })
         }
         let userDetails = await userModel.findOne({ email })
-        if (!userDetails) { return res.status(404).send({ status: false, message: "User not registered" }) }
+        if (!userDetails) { return res.status(404).send({ status: false,filed:"email", message: "User not registered" }) }
         let hash = userDetails.password
         let finalPaswword = (result) => {
             if (result == true) {
@@ -160,7 +161,7 @@ const userLogin = async (req, res) => {
                 return res.status(200).send({ status: true, message: "User login successfull", data: { userId: userId, token: token } });
             }
             else {
-                return res.status(401).send({ status: false, message: "incorrect Password" })
+                return res.status(401).send({ status: false,filed:"password", message: "incorrect Password" })
             }
 
         }

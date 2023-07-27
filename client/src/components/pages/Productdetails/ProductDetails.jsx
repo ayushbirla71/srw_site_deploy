@@ -59,6 +59,7 @@ const ProductDetails = () => {
       let data = await FeachApi(Obj);
       if (data?.status === true) {
         Dispatch(Product_Page_Details_act(data.data));
+        console.log(data.data);
         setOptions({
           ...options,
           RAM: data?.Processor_Memory_Features?.Mobile_RAM[0],
@@ -281,17 +282,33 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="productdetails_item_info_box_options_list_right">
-                  <label>Add Integra Pack</label>
-                  <div className="productdetails_item_info_box_options_list_right_btn">
-                    <label>
-                      <input type="checkbox" />
-                      <span>4g (+$2.00)</span>
-                    </label>
-                    <label>
-                      <input type="checkbox" />
-                      <span>8g (+$3.00)</span>
-                    </label>
-                  </div>
+                  {Product_Page?.Color?.length >= 1 ? (
+                    <>
+                      <label>Color Options</label>
+                      <div className="productdetails_item_info_box_options_list_right_btn">
+                        {Product_Page?.Color?.map((item, index) => (
+                          <label>
+                            <label
+                              style={{ backgroundColor: `${item}` }}
+                              onClick={() =>
+                                setOptions({ ...options, Color: item })
+                              }
+                            >
+                              <span
+                                style={
+                                  item === Options?.Color
+                                    ? { backgroundColor: `${item}` }
+                                    : {}
+                                }
+                              ></span>
+                            </label>
+                          </label>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
               <span>
