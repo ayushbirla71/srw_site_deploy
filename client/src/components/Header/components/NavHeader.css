@@ -10,7 +10,6 @@
   >div{
     >a{
       text-decoration: none;
-      cursor: pointer;
       color: black;
     }
     >a:hover{
@@ -80,16 +79,33 @@
     top: 85px;
 
     >div{
+      >a{
+          font-size: 14px;
+          border: none;
+          background-color: transparent;
+          align-items: self-start;
+          display: flex;
+         text-decoration: none;
+          padding: 12px 16px;
+          color: black;
+        
+      }
      >a:hover{
       text-decoration: underline;
+      color: #17AF26;
       
      }
+    }
+    .naveHeader_mobile_menu_box_dropbtn:hover{
+      text-decoration: underline;
+      color: #17AF26;
     }
   
     .naveHeader_mobile_menu_box_dropbtn {
       font-size: 14px;
       border: none;
       background-color: transparent;
+      padding: 12px 16px;
     }
   
     .naveHeader_mobile_menu_box_dropdown {

@@ -129,6 +129,14 @@ const ProductDetails = () => {
 
   return (
     <div className="productdetails">
+         <div
+              style={popup ? { display: "flex" } : {}}
+              className="productdetails_popup_message"
+            >
+              <label>successfully add</label>
+            </div>
+
+            
       <div
         style={product_action_btn?.popup_img ? { display: "none" } : {}}
         className="productdetails_item_img_popup"
@@ -314,13 +322,6 @@ const ProductDetails = () => {
               <span>
                 Purchase this product now and earn <span>80</span> Points!
               </span>
-            </div>
-
-            <div
-              style={popup ? { display: "flex" } : {}}
-              className="productdetails_popup_message"
-            >
-              <label>successfully add</label>
             </div>
 
             <div className="productdetails_item_info_box_addcart">

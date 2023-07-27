@@ -100,7 +100,7 @@ const NavHeader = () => {
       >
         <div className="naveHeader_mobile_menu_box">
           <div>
-            <a href="#">Home</a>
+            <a href="/home">Home</a>
           </div>
 
           <div>
@@ -215,6 +215,7 @@ const NavHeader = () => {
               <a
                 className="naveHeader_info_login_user_menu_userInfo_link_div_content"
                 onClick={OnClick}
+                style={{color:"red"}}
               >
                 LogOut
               </a>

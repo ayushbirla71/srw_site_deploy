@@ -1,3 +1,11 @@
+.home{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5%;
+  gap:10px
+}
+
 .home_slider {
   background-color: #053f42;
   display: flex;
@@ -118,6 +126,9 @@
 
 .home_best_Dispensery {
   padding: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   .home_best_Dispensery_header {
     padding: 3%;
     > h2 {
@@ -230,10 +241,10 @@
   .home_testimonials_content {
     display: flex;
     border-radius: 16px;
+    gap: 10px;
 
     .home_testimonials_content_logo {
       display: flex;
-      width: 200px;
       padding: 40px;
       flex-direction: column;
 
@@ -443,7 +454,6 @@
 
 .how_to_order {
   padding: 1% 6%;
-  margin-top: 10%;
 
   background: var(--secondary-900, #01100b);
   > .how_to_order_popup {

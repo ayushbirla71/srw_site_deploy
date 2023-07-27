@@ -32,18 +32,18 @@ const CartPage = () => {
               style={step == "Shopping" ? { color: "white" } : {}}
             />
           </label>
-          <h3>Shopping Cart</h3>
+          <h3  style={step == "Shopping" ? { color: "#05422c" } : {}}>Shopping Cart</h3>
         </div>
         <div className="cartpage_header_empty">
           <span></span>
         </div>
-        <div className="cartpage_header_shopping">
-          <label onClick={()=>setstep("Checkout")} style={step == "Checkout" ? { background: "#05422c" } : {}}>
+        <div onClick={()=>setstep("Checkout")} className="cartpage_header_shopping">
+          <label  style={step == "Checkout" ? { background: "#05422c" } : {}}>
             <MdShoppingCartCheckout
               style={step == "Checkout" ? { color: "white" } : {}}
             />
           </label>
-          <h3>Checkout</h3>
+          <h3 style={step == "Checkout" ? { color: "#05422c" } : {}}>Checkout</h3>
         </div>
         <div className="cartpage_header_empty">
           <span></span>
@@ -56,7 +56,7 @@ const CartPage = () => {
               style={step == "Order Complete" ? { color: "white" } : {}}
             />
           </label>
-          <h3>Order Complete</h3>
+          <h3 style={step == "Order Complet" ? { color: "#05422c" } : {}}>Order Complete</h3>
         </div>
       </div>
 

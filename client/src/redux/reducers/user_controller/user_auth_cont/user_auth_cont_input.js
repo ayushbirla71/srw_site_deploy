@@ -2,7 +2,7 @@ const initialState = {
     fname:"",
     lname:"",
     email:"",
-    gender:"",
+    gender:"Male",
     phone:"",
     password:"",
     confirmpassword:'',

@@ -1259,6 +1259,16 @@
   align-items: center;
   position: fixed;
   background-color: #1ac92c;
-  padding: 1% 2%;
+  padding: 2% 2%;
   border-radius: 10px;
+  align-items: center;
+  left: 40%;
+  right: 40%;
+}
+
+@media screen  and (max-width:512px){
+  .productdetails_popup_message{
+    left: 20%;
+    right: 20%;
+  }
 }

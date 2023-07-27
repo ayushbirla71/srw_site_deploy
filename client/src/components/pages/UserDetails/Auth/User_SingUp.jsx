@@ -43,27 +43,34 @@ const User_SingUp = () => {
     <div className="user_singup">
       <div className="user_singup_top">
         <h5>Sign up to System Repair World</h5>
-        <h1>{inputReq}</h1>
         <div className="user_singup_top_name_input">
-          <input
-            required
-            name="fname"
-            onChange={OnInput}
-            type="text"
-            placeholder="First name"
-          />
-          <input
-            required
-            name="lname"
-            onChange={OnInput}
-            type="text"
-            placeholder="Last name"
-          />
+          <label>
+            <input
+              required
+              name="fname"
+              onChange={OnInput}
+              type="text"
+              placeholder="First name"
+            />
+            <span>{inputReq === "fname" ? "First Name is required" : ""}</span>
+          </label>
+          <label>
+            <input
+              required
+              name="lname"
+              onChange={OnInput}
+              type="text"
+              placeholder="Last name"
+            />
+
+            <span>{inputReq === "lname" ? "Last Name is required" : ""}</span>
+          </label>
         </div>
         <lable>
           {" "}
           Email Address
           <input required name="email" onChange={OnInput} type="email" />
+          <span>{inputReq === "email" ? "email Id is required" : ""}</span>
         </lable>
 
         {/* <lable>
@@ -75,7 +82,7 @@ const User_SingUp = () => {
         <div className="user_singup_top_mobile_input">
           <lable>
             Country
-            <select onChange={OnInput} >
+            <select onChange={OnInput}>
               <option value="504">Honduras +504</option>
               <option value="852">Hong Kong +852</option>
               <option value="36">Hungary +36</option>
@@ -90,11 +97,13 @@ const User_SingUp = () => {
               <option value="39">Italy +39</option>
               <option value="1876">Jamaica +1876</option>
             </select>
+            <span>{inputReq === "" ? inputReq : ""}</span>
           </lable>
           <lable>
             {" "}
             Phone #
             <input required name="phone" onChange={OnInput} type="number" />
+            <span>{inputReq === "phone" ? "phone no is required" : ""}</span>
           </lable>
         </div>
 
@@ -110,7 +119,7 @@ const User_SingUp = () => {
         <lable>
           {" "}
           Gender
-          <select required name="gender" onChange={OnInput}>
+          <select required name="gender" value="Male" onChange={OnInput}>
             <option>Male</option>
             <option>Female</option>
           </select>

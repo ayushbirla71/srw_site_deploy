@@ -63,10 +63,11 @@
     }
   
     > .item_comp_choose_your_weed_content {
-      padding-top: 2%;
+      /* padding-top: 2%; */
+      padding: 2px;
       display: grid;
       grid-template-columns: auto auto auto auto;
-      gap: 3%;
+      gap: 10px;
     }
   }
   

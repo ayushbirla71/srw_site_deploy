@@ -340,7 +340,7 @@ const Home = () => {
       </div>
 
       <div className="how_to_order">
-        <div className="how_to_order_popup">
+        {/* <div className="how_to_order_popup">
           <div className="how_to_order_popup_content">
             <div className="how_to_order_popup_content_left">
               <h3>REFER A FRIENDS</h3>
@@ -353,7 +353,9 @@ const Home = () => {
               <button>Refer Here</button>
             </div>
           </div>
-        </div>
+        </div> */}
+
+
         <div className="how_to_order_box">
           <div className="how_to_order_box_header">
             <h1>HOW TO ORDER LAPTOP ONLINE FROM SYSTEM REPAIR WORLD INDORE</h1>

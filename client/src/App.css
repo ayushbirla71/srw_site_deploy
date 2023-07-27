@@ -13,7 +13,6 @@ outline: none;
   justify-content: space-between;
 
   >.app_home_pages{
-    padding-bottom: 5%;
     display: flex;
     flex-direction: column;
     >.app_home_pages_cart_popup{
@@ -32,7 +31,6 @@ outline: none;
 @media screen and (max-width: 512px) {
   .app{
     >.app_home_pages{
-      padding-bottom: 15rem;
       >.app_home_pages_cart_popup{
         padding-top: 48px;
        
