@@ -13,6 +13,7 @@ const productSchema = new mongoose.Schema(
     Category: {type: [String]},
 
     Stock : {type : String,required:true, enum :["IN STOCK", "OUT OF STOCK"]},
+    Qantity:{type : Number},
 
     ImageUrlList : {type:[String]},
 
@@ -40,7 +41,7 @@ const productSchema = new mongoose.Schema(
 
     Display_feature: {
       type: Object,
-
+      Display_type:{type:String},
       Touch_screen: { type: String },
       Screen_size: { type: String },
       Resolution: { type: String },

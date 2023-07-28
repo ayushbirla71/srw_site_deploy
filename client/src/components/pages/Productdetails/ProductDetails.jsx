@@ -204,14 +204,14 @@ const ProductDetails = () => {
             <div className="productdetails_item_info_box_header">
               <label>CONCENTRATES</label>
               <h3>{Product_Page?.Title}</h3>
-              <div className="productdetails_item_info_box_header_contents">
+              {/* <div className="productdetails_item_info_box_header_contents">
                 <label>Indica</label>
                 <label>Sativa 100%</label>
-              </div>
+              </div> */}
               <div className="productdetails_item_info_box_header_price">
                 <label>
-                  <span id="mrp">₹ {Product_Page?.Price}</span>
-                  <span id="rs">₹ {Product_Page?.MRP}</span>
+                  <span id="mrp">₹ {Product_Page?.MRP}</span>
+                  <span id="rs">₹ {Product_Page?.Price}</span>
                 </label>
 
                 <div>
@@ -325,7 +325,7 @@ const ProductDetails = () => {
             </div>
 
             <div className="productdetails_item_info_box_addcart">
-              <div className="productdetails_item_info_box_addcart_price">
+              {/* <div className="productdetails_item_info_box_addcart_price">
                 <div className="productdetails_item_info_box_addcart_price_top">
                   <label>
                     <span> Khalifa Kush (AAAA)</span> <span id="into">2x</span>
@@ -338,7 +338,7 @@ const ProductDetails = () => {
                   </label>
                   <label>$2.00</label>
                 </div>
-              </div>
+              </div> */}
 
               <div className="productdetails_item_info_box_addcart_add_cart">
                 <div className="productdetails_item_info_box_addcart_add_cart_left">
@@ -361,7 +361,7 @@ const ProductDetails = () => {
                 <div className="productdetails_item_info_box_addcart_add_cart_right">
                   <button onClick={() => AddCart()}>Add to Cart</button>
                   <span></span>
-                  <label>$242.00</label>
+                  <label>₹ {Product_Page?.Price * quantity}</label>
                 </div>
               </div>
 
@@ -370,7 +370,7 @@ const ProductDetails = () => {
                   <img />
                   <label>
                     Free Xpress Shipping on orders over
-                    <span>$149</span>
+                    <span> ₹ 500</span>
                   </label>
                 </div>
                 <div>

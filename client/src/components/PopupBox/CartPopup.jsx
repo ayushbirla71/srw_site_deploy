@@ -118,10 +118,10 @@ const CartPopup = () => {
                   </div>
                   <div className="cartpopup_box_items_list_item_content">
                     <div className="cartpopup_box_items_list_item_content_info">
-                      <h4>{item ? item.productId.Title : ""}</h4>
+                      <h4>{item ? item?.productId?.Title : ""}</h4>
                       <div className="cartpopup_box_items_list_item_content_info_qunt">
                         <span> Qty {item?.quantity}</span> *{" "}
-                        <label> ₹ {item ? item.productId.Price : ""}</label>
+                        <label> ₹ {item ? item?.productId?.Price : ""}</label>
                       </div>
                     </div>
                     <div className="cartpopup_box_items_list_item_content_info_price">
@@ -129,7 +129,7 @@ const CartPopup = () => {
                         <AiOutlineClose onClick={()=>{removItem(item?._id, item?.productId?._id)}}/>
                       </label>
                       <label>
-                        ₹ {item ? item.productId.Price * item?.quantity : ""}
+                        ₹ {item ? item?.productId?.Price * item?.quantity : ""}
                       </label>
                     </div>
                   </div>

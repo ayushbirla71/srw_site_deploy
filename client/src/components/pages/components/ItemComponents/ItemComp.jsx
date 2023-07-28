@@ -37,7 +37,7 @@ const ItemComp = ({ data }) => {
         
         data?.map((item, _id) => {
           
-          if (item.Category == typeOfData) {
+          if (item.Category?.includes(typeOfData)) {
           
             return <SingleComp key={_id} item={item} />;
           }
