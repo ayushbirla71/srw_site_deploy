@@ -27,7 +27,9 @@
 
         > img {
           /* width: 100%; */
-          height: 100%;
+          /* width: fit-content; */
+          max-width: 100%;
+          max-height: 100%;
           flex-shrink: 0;
           border-radius: 24px;
           cursor: pointer;
@@ -53,7 +55,8 @@
           > img {
             padding: 2px;
             display: flex;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
            
           }
         }
@@ -761,7 +764,7 @@
                       line-height: 150%;
                       text-decoration-line: strikethrough;
                     }
-                    > span {
+                    > p {
                       color: var(--neutral-900, #060709);
                       width: 90%;
                       /* Regular/Text-XS */
@@ -1215,7 +1218,8 @@
         background: var(--neutral-0, #fff);
 
         > img {
-          height: 90%;
+          max-height: 100%;
+            max-width: 100%;
         }
 
         > label {
@@ -1251,7 +1255,8 @@
           overflow: hidden;
 
           > img {
-            height: 100%;
+            max-height: 100%;
+            max-width: 100%;
             flex-shrink: 0;
           }
         }

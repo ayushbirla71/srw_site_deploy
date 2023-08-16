@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
 import SingleComp from "../components/ListComponents/SingleComp";
 import { AiOutlineClose } from "react-icons/ai";
-import { json, useParams } from "react-router-dom";
+import { json, useNavigate, useParams } from "react-router-dom";
 import FeachApi from "../../../utils/FeachAPI";
 import { useDispatch, useSelector } from "react-redux";
 import { Product_Page_Details_act } from "../../../redux/actions/productDetails_actions/ProductDetails";
@@ -10,6 +10,7 @@ import { Home_Product_List_Action } from "../../../redux/actions/productList_act
 import { CartItems_actions } from "../../../redux/actions/cartItems_actions/CartItems_actions";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const {
     Product_Page,
     User_credentials_login,
@@ -124,19 +125,19 @@ const ProductDetails = () => {
       }
     } else {
       console.log(User_details);
+      navigate("/login");
     }
   };
 
   return (
     <div className="productdetails">
-         <div
-              style={popup ? { display: "flex" } : {}}
-              className="productdetails_popup_message"
-            >
-              <label>successfully add</label>
-            </div>
+      <div
+        style={popup ? { display: "flex" } : {}}
+        className="productdetails_popup_message"
+      >
+        <label>successfully add</label>
+      </div>
 
-            
       <div
         style={product_action_btn?.popup_img ? { display: "none" } : {}}
         className="productdetails_item_img_popup"
@@ -274,20 +275,52 @@ const ProductDetails = () => {
             <div className="productdetails_item_info_box_options">
               <div className="productdetails_item_info_box_options_list">
                 <div className="productdetails_item_info_box_options_list_left">
-                  <label>RAM</label>
-                  <div className="productdetails_item_info_box_options_list_left_btn">
-                    {Product_Page?.Processor_Memory_Features?.Mobile_RAM.map(
-                      (item, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setOptions({ ...options, RAM: item })}
-                          style={Options?.RAM == item ? { color: "blue" } : {}}
-                        >
-                          {item}
-                        </button>
-                      )
-                    )}
-                  </div>
+                  {Product_Page?.Processor_Memory_Features?.Mobile_RAM
+                    ?.length >= 1 && (
+                    <>
+                      <label>RAM</label>
+                      <div className="productdetails_item_info_box_options_list_left_btn">
+                        {Product_Page?.Processor_Memory_Features?.Mobile_RAM?.map(
+                          (item, index) => (
+                            <button
+                              key={index}
+                              onClick={() =>
+                                setOptions({ ...options, RAM: item })
+                              }
+                              style={
+                                Options?.RAM == item ? { color: "blue" } : {}
+                              }
+                            >
+                              {item}
+                            </button>
+                          )
+                        )}
+                      </div>
+                    </>
+                  )}
+
+                  {!Product_Page?.Processor_Memory_Features?.Mobile_RAM
+                    ?.length && (
+                    <>
+                      <label>RAM</label>
+                      <div className="productdetails_item_info_box_options_list_left_btn">
+                        {Product_Page?.Processor_Memory_Features?.RAM ? (
+                          <button
+                            onClick={() =>
+                              setOptions({ ...options, RAM: Product_Page?.Processor_Memory_Features?.RAM })
+                            }
+                            style={
+                              Options?.RAM == Product_Page?.Processor_Memory_Features?.RAM ? { color: "blue" } : {}
+                            }
+                          >
+                            {Product_Page?.Processor_Memory_Features?.RAM}
+                          </button>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className="productdetails_item_info_box_options_list_right">
                   {Product_Page?.Color?.length >= 1 ? (
@@ -464,116 +497,13 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>General</label>
                         </div>
-                        {Product_Page?.General_info?.InTheBox ? (
+                        {Object.entries(Product_Page?.General_info).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>In The Box</label>
-                            <span>{Product_Page?.General_info?.InTheBox}</span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <p>{" "}{value}</p>
+                        </div>
 
-                        {Product_Page?.General_info?.Model_Name ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Model Number</label>
-                            <span>
-                              {Product_Page?.General_info?.Model_Name}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.Color ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Color</label>
-                            <span>{Product_Page?.General_info?.Color}</span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.Series ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Series</label>
-                            <span>{Product_Page?.General_info?.Series}</span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.SIM_type ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>SIM type</label>
-                            <span>{Product_Page?.General_info?.SIM_type}</span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.Battert_cell ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Battert cell</label>
-                            <span>
-                              {Product_Page?.General_info?.Battert_cell}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.connectivity ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>connectivity</label>
-                            <span>
-                              {Product_Page?.General_info?.connectivity}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.Supported_Os ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Supported OS</label>
-                            <span>
-                              {Product_Page?.General_info?.Supported_Os}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.Read_Speed ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Read Speed</label>
-                            <span>
-                              {Product_Page?.General_info?.Read_Speed}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.System_Requirements ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>System Requirements</label>
-                            <span>
-                              {Product_Page?.General_info?.System_Requirements}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.General_info?.Type ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Type</label>
-                            <span>{Product_Page?.General_info?.Type}</span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -602,49 +532,13 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>Display Features</label>
                         </div>
-                        {Product_Page?.Display_feature?.Touch_screen ? (
+                        
+                        {Object.entries(Product_Page?.Display_feature).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Touch screen</label>
-                            <span>
-                              {Product_Page?.Display_feature?.Touch_screen}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Display_feature?.Screen_size ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Screen size</label>
-                            <span>
-                              {Product_Page?.Display_feature?.Screen_size}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Display_feature?.Resolution ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Resolution</label>
-                            <span>
-                              {Product_Page?.Display_feature?.Resolution}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Display_feature?.Resolution_type ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Resolution type</label>
-                            <span>
-                              {Product_Page?.Display_feature?.Resolution_type}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span>{" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -655,63 +549,12 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>OS & Processors</label>
                         </div>
-                        {Product_Page?.OS_Processors?.Operating_St ? (
+                        {Object.entries(Product_Page?.OS_Processors).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Operating St</label>
-                            <span>
-                              {Product_Page?.OS_Processors?.Operating_St}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.OS_Processors?.Processor_Core ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Processor Core</label>
-                            <span>
-                              {Product_Page?.OS_Processors?.Processor_Core}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.OS_Processors?.Primary_Clock ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Primary Clock</label>
-                            <span>
-                              {Product_Page?.OS_Processors?.Primary_Clock}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.OS_Processors?.Supported_Oprating_St ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Supported Oprating St</label>
-                            <span>
-                              {
-                                Product_Page?.OS_Processors
-                                  ?.Supported_Oprating_St
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.OS_Processors?.System_Architecture ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>System Architecture</label>
-                            <span>
-                              {Product_Page?.OS_Processors?.System_Architecture}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span>{" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -722,116 +565,12 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>Processor & Memory Features</label>
                         </div>
-                        {Product_Page?.Processor_Memory_Features
-                          ?.Processor_Brand ? (
+                        {Object.entries(Product_Page?.Processor_Memory_Features).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Processor Brand</label>
-                            <span>
-                              {
-                                Product_Page?.Processor_Memory_Features
-                                  ?.Processor_Brand
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features
-                          ?.Processor_Name ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Processor Name</label>
-                            <span>
-                              {
-                                Product_Page?.Processor_Memory_Features
-                                  ?.Processor_Name
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features
-                          ?.Processor_Generation ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Processor Generation</label>
-                            <span>
-                              {
-                                Product_Page?.Processor_Memory_Features
-                                  ?.Processor_Generation
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features?.SSD ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>SSD</label>
-                            <span>
-                              {Product_Page?.Processor_Memory_Features?.SSD}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features?.RAM ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>RAM</label>
-                            <span>
-                              {Product_Page?.Processor_Memory_Features?.RAM}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features?.RAM_Type ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>RAM Type</label>
-                            <span>
-                              {
-                                Product_Page?.Processor_Memory_Features
-                                  ?.RAM_Type
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features
-                          ?.Number_Cores ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Number Cores</label>
-                            <span>
-                              {
-                                Product_Page?.Processor_Memory_Features
-                                  ?.Number_Cores
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Processor_Memory_Features
-                          ?.Graphic_Processor ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Graphic Processor</label>
-                            <span>
-                              {
-                                Product_Page?.Processor_Memory_Features
-                                  ?.Graphic_Processor
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span>{" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -842,38 +581,12 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>Camera Features</label>
                         </div>
-                        {Product_Page?.Camera_Features?.Primary_Camera ? (
+                        {Object.entries(Product_Page?.Camera_Features).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Primary Camera</label>
-                            <span>
-                              {Product_Page?.Camera_Features?.Primary_Camera}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Camera_Features?.Secondary_Camera ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Secondary Camera</label>
-                            <span>
-                              {Product_Page?.Camera_Features?.Secondary_Camera}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Camera_Features?.Video_Recording ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Video Recording</label>
-                            <span>
-                              {Product_Page?.Camera_Features?.Video_Recording}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span>{" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -884,73 +597,12 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>Connectivity Features</label>
                         </div>
-                        {Product_Page?.Connectivity_Features?.Network_Type ? (
+                        {Object.entries(Product_Page?.Connectivity_Features).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Network Type</label>
-                            <span>
-                              {
-                                Product_Page?.Connectivity_Features
-                                  ?.Network_Type
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Connectivity_Features
-                          ?.Supported_Networks ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Supported Networks</label>
-                            <span>
-                              {
-                                Product_Page?.Connectivity_Features
-                                  ?.Supported_Networks
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Connectivity_Features?.Wireless_LAN ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Wireless LAN</label>
-                            <span>
-                              {
-                                Product_Page?.Connectivity_Features
-                                  ?.Wireless_LAN
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Connectivity_Features?.Bluetooth ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Bluetooth</label>
-                            <span>
-                              {Product_Page?.Connectivity_Features?.Bluetooth}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Connectivity_Features?.Battery_Life ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Battery Life</label>
-                            <span>
-                              {
-                                Product_Page?.Connectivity_Features
-                                  ?.Battery_Life
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span>{" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -961,75 +613,12 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>Additional Features</label>
                         </div>
-                        {Product_Page?.Additional_Features?.Disk_Drive ? (
+                        {Object.entries(Product_Page?.Additional_Features).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Disk Drive</label>
-                            <span>
-                              {Product_Page?.Additional_Features?.Disk_Drive}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Additional_Features?.Web_Camera ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Web Camera</label>
-                            <span>
-                              {Product_Page?.Additional_Features?.Web_Camera}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Additional_Features
-                          ?.Finger_Print_Sensor ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Finger Print Sensor</label>
-                            <span>
-                              {
-                                Product_Page?.Additional_Features
-                                  ?.Finger_Print_Sensor
-                              }
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Additional_Features?.Keyboard ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Keyboard</label>
-                            <span>
-                              {Product_Page?.Additional_Features?.Keyboard}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Additional_Features?.SIM_Size ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>SIM Size</label>
-                            <span>
-                              {Product_Page?.Additional_Features?.SIM_Size}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Additional_Features?.Sensors ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Sensors</label>
-                            <span>
-                              {Product_Page?.Additional_Features?.Sensors}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span>{" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""
@@ -1040,38 +629,12 @@ const ProductDetails = () => {
                         <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_header">
                           <label>Warranty</label>
                         </div>
-                        {Product_Page?.Warranty?.Warranty_Summary ? (
+                        {Object.entries(Product_Page?.Warranty).map(([key, value])=>(
                           <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Warranty Summary</label>
-                            <span>
-                              {Product_Page?.Warranty?.Warranty_Summary}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Warranty?.Covered_Warranty ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Covered Warranty</label>
-                            <span>
-                              {Product_Page?.Warranty?.Covered_Warranty}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-
-                        {Product_Page?.Warranty?.Domestic_Warranty ? (
-                          <div className="productdetails_item_info_releted_btn_content_description_extra_info_box_item_list">
-                            <label>Domestic Warranty</label>
-                            <span>
-                              {Product_Page?.Warranty?.Domestic_Warranty}
-                            </span>
-                          </div>
-                        ) : (
-                          ""
-                        )}
+                          <label>{key}</label>
+                          <span> {" "}{value}</span>
+                        </div>
+                        ))}
                       </div>
                     ) : (
                       ""

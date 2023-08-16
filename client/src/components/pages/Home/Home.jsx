@@ -50,10 +50,12 @@ const Home = () => {
 
   return (
     <div className="home">
+
+      {/* Home Main Div image */}
       <div className="home_slider">
         <div className="home_slider_left">
           <label>BEST SELLER</label>
-          <h1>BEST DISPENSARY TO BUY LAPTOP & MOBILE ONLINE </h1>
+          <h1>BEST SHOP TO BUY LAPTOP & MOBILE ONLINE </h1>
           <a>Products & Accessories</a>
 
           <div className="home_slider_left_offers">
@@ -72,6 +74,7 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Home about quality Details */}
       <div className="home_OurQuality">
         <div className="home_OurQuality_content">
           <div className="home_OurQuality_content_logo">
@@ -116,9 +119,11 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Best Dispensery Div */}
+
       <div className="home_best_Dispensery">
         <div className="home_best_Dispensery_header">
-          <h2>BEST DISPENSARY TO BUY LAPTOP & MOBILE ONLINE IN INDORE</h2>
+          <h2>BEST SHOP TO BUY LAPTOP & MOBILE ONLINE IN INDORE</h2>
         </div>
         <div className="home_best_Dispensery_section">
           <button
@@ -164,6 +169,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Testimonials About SRK shopping site */}
 
       <div className="home_testimonials">
         <div className="home_testimonials_header">
@@ -335,10 +342,13 @@ const Home = () => {
         </div>
       </div>
 
+      {/*  Home product list */}
+
       <div className="home_choose_your_weed">
         <ItemComp data={Home_product_List} />
       </div>
 
+{/* site Order Instruction Details */}
       <div className="how_to_order">
         {/* <div className="how_to_order_popup">
           <div className="how_to_order_popup_content">
@@ -432,14 +442,15 @@ const Home = () => {
         </div>
       </div>
 
+{/* What makes us the No One Shopping site in indore */}
       <div className="what_makes_us_the_no_one">
         <div className="what_makes_us_the_no_one_header">
           <h1>
-            WHAT MAKES US THE <span>#1</span> ONLINE LAPTOP & MOBILE DISPENSARY
+            WHAT MAKES US THE <span>#1</span> ONLINE LAPTOP & MOBILE SHOP
             IN INDORE?
           </h1>
           <p>
-            When it comes to what makes us the foremost online Laptop dispensary
+            When it comes to what makes us the foremost online Laptop Shop
             in indore, we could wax lyrical about our positive qualities.
             Instead, to make this information clearer, we’ve highlighted the six
             prioritized features that we feel makes us a cut above the rest.
@@ -528,7 +539,7 @@ const Home = () => {
         </div>
       </div>
 
-
+{/* Last item list dive in home page */}
       <div className="recently_add_items">
         <ItemComp data={Home_product_List} />
       </div>
