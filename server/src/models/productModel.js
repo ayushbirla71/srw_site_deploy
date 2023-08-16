@@ -5,21 +5,20 @@ const productSchema = new mongoose.Schema(
     Title: { type: String },
 
     Highlights: { type: [String] },
-    Price : {type: Number},
-    MRP : {type: Number},
-    Color :{type:[String]},
+    Price: { type: Number },
+    MRP: { type: Number },
+    Color: { type: [String] },
     Description: { type: String },
 
-    Category: {type: [String]},
+    Category: { type: [String] },
 
-    Stock : {type : String,required:true, enum :["IN STOCK", "OUT OF STOCK"]},
-    Qantity:{type : Number},
+    Stock: { type: String, required: true, enum: ["IN STOCK", "OUT OF STOCK"] },
+    Qantity: { type: Number },
 
-    ImageUrlList : {type:[String]},
+    ImageUrlList: { type: [String] },
 
-    Best_Sellers : {type :Boolean, default : false},
-    
-    
+    Best_Sellers: { type: Boolean, default: false },
+
     //general lifo
     General_info: {
       type: Object,
@@ -29,19 +28,23 @@ const productSchema = new mongoose.Schema(
       Color: { type: String },
       Series: { type: String },
       SIM_type: { type: String },
-      Battert_cell: { type: String },
-      connectivity: {type : String},
-      Supported_Os :{type :String},
-      Read_Speed :{ type :String},
-      System_Requirements : {type :String},
-      Type : {type : String}
+      Battery_cell: { type: String },
+      connectivity: { type: String },
+      Supported_Os: { type: String },
+      Read_Speed: { type: String },
+      System_Requirements: { type: String },
+      Type: { type: String },
+      Headphone_Type: String,
+      Inline_Remote: String,
+      connectivity: String,
+      Headphone_Desing: String,
     },
 
     // Display Feature
 
     Display_feature: {
       type: Object,
-      Display_type:{type:String},
+      Display_type: { type: String },
       Touch_screen: { type: String },
       Screen_size: { type: String },
       Resolution: { type: String },
@@ -92,14 +95,19 @@ const productSchema = new mongoose.Schema(
       Supported_Networks: { type: String },
       Wireless_LAN: { type: String },
       Bluetooth: { type: String },
-      Battery_Life :{type :String}
+      Battery_Life: { type: String },
+      Bluetooth_Version: String,
+      Play_Time: String,
+      Bluetooth_Range: String,
     },
 
-    // Product Details 
-    Product_Details:{
-        type: Object,
-        Deep_Bass :{type :String},
-        Water_Resistant :{type :String}
+    // Product Details
+    Product_Details: {
+      type: Object,
+      Deep_Bass: { type: String },
+      Water_Resistant: { type: String },
+      Sweat_Proof: String,
+      With_Microphone: String,
     },
 
     // Additional Features
@@ -129,6 +137,8 @@ const productSchema = new mongoose.Schema(
       Warranty_Summary: { type: String },
       Covered_Warranty: { type: String },
       Domestic_Warranty: { type: String },
+      Not_Covered_In_Warranty: { type: String },
+      Warranty_Service_type: String,
     },
 
     Ratings: {
